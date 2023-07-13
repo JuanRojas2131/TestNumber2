@@ -1,0 +1,17 @@
+import pandas as pd
+from pandasql import sqldf
+
+table = pd.read_csv('billboard.csv')
+
+cont = input("Indicate the minimum number of songs by the artist: ")
+G
+consult = '''
+SELECT Artist, COUNT(Artist) AS counter
+FROM tabla
+GROUP BY Artist
+HAVING COUNT(Artist) >= '{}'
+'''.format(cont)
+
+final_table = sqldf(consult, locals())
+
+print(final_table)
