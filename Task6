@@ -1,0 +1,16 @@
+import pandas as pd
+from pandasql import sqldf
+
+table = pd.read_csv('billboard.csv')
+
+consult = '''
+SELECT Artist, COUNT(Artist) AS counter
+FROM table
+GROUP BY Artist
+ORDER BY counter DESC
+LIMIT 1
+'''
+
+final_table = sqldf(consult, locals())
+
+print(final_table)
