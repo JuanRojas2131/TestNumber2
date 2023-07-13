@@ -1,0 +1,11 @@
+import pandas as pd
+
+table = pd.read_csv('billboard.csv')
+
+column_artist = 'Artist'
+column_song = 'Song'
+
+table_list = table.groupby(column_artist)[column_song].apply(list)
+
+for value_artist, value_song in table_list.items():
+    print('The artist:',value_artist,'\nHave the next songs',value_song)
