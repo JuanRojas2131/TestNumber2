@@ -1,0 +1,16 @@
+import pandas as pd
+from pandasql import sqldf
+
+table = pd.read_csv('billboard.csv')
+
+year = input("Indicate the year of the song: ")
+
+consult = '''
+SELECT Rank, Song, Artist, Year
+FROM table
+WHERE Year = '{}'
+'''.format(year)
+
+final_table = sqldf(consult, locals())
+
+print(final_table)
