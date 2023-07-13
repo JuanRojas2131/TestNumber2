@@ -1,0 +1,10 @@
+import pandas as pd
+
+table = pd.read_csv('billboard.csv')
+
+column = 'Artist'
+
+average_value = tabla[columna].value_counts() / len(table[column].unique())
+
+for value, average in average_value.items():
+    print("Artist:", value, "\nAverage:", average)
